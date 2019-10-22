@@ -53,7 +53,7 @@ The program accepts two arguments -file and -(ivp|fvp|np). Both the arguments ar
 
     $ PYTHONPATH=. ./nacc/redcap2nacc.py -h
     usage: redcap2nacc.py [-h]
-                          [-fvp | -ivp | -np | -m | -f {cleanPtid,updateField,fixHeaders,replaceDrugId,getPtid,removePtid,fillDefault,removeDateRecord}]
+                          [-fvp | -ivp | -np | -m | -lbd | -f {cleanPtid,updateField,fixHeaders,replaceDrugId,getPtid,removePtid,fillDefault,removeDateRecord}]
                           [-file FILE] [-meta FILTER_META] [-ptid PTID]
                           [-vnum VNUM] [-vtype VTYPE]
 
@@ -65,6 +65,7 @@ The program accepts two arguments -file and -(ivp|fvp|np). Both the arguments ar
       -ivp                  Set this flag to process as ivp data
       -np                   Set this flag to process as np data
       -m                    Set this flag to process as m data
+      -lbd                  Set this flag to process as lbd data
       -f {cleanPtid,updateField,fixHeaders,replaceDrugId,getPtid,removePtid,fillDefault,removeDateRecord}, --filter {cleanPtid,updateField,fixHeaders,replaceDrugId,getPtid,removePtid,fillDefault,removeDateRecord}
                             Set this flag to process the filter
       -file FILE            Path of the csv file to be processed.
@@ -78,6 +79,10 @@ The program accepts two arguments -file and -(ivp|fvp|np). Both the arguments ar
 Example Usage
 
     PYTHONPATH=. ./nacc/redcap2nacc.py  -np -file data.csv > data.txt
+
+For the -lbd argument, nacculator will default to -ivp forms. You must specify with a second argument that you want to process -lbd -fvp forms:
+
+    PYTHONPATH=. ./nacc/redcap2nacc.py  -lbd -fvp -file data.csv > data.txt
 
 To use a filter,
 
